@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
-<GridPane hgap="10.0" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.CheckersController">
+<?import javafx.scene.text.*?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" hgap="10.0" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.112"
+          fx:controller="game.CheckersController">
    <children>
       <GridPane hgap="10.0" vgap="10.0" GridPane.columnIndex="1">
          <children>
@@ -90,6 +84,7 @@
             <Font size="16.0" />
          </font>
       </Label>
+      <Pane prefHeight="480.0" prefWidth="480.0"/>
    </children>
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" />

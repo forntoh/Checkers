@@ -5,6 +5,7 @@ package game.checkers;
  */
 
 public class Unit {
+    static final int BOARD_SIZE = 6;
     private static final double multiplier = 3;
     static final int RADIUS = (int) (8 * multiplier);
     public static final int SIZE = (int) (20 * multiplier);

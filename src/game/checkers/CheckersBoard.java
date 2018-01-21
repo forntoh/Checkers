@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 
 /**
@@ -18,49 +17,29 @@ public class CheckersBoard extends Group implements EventHandler<MouseEvent> {
 
     private Button resignButton;    // Current player can resign by clicking this button.
     private Button newGameButton;   // This button starts a new game.  It is enabled only
-                                    // when the current game has ended.
+    // when the current game has ended.
 
     private Label message;   // A label for displaying messages to the user.
 
     private CheckersData board; // The data for the checkers board is kept here.
-                                // This board is also responsible for generating
-                                // lists of legal moves.
-
-    public void setGameInProgress(boolean gameInProgress) {
-        this.gameInProgress = gameInProgress;
-    }
-
+    // This board is also responsible for generating
+    // lists of legal moves.
     // Is a game currently in progress?
     private boolean gameInProgress;
-
     // Whose turn is it now?  The possible values
     // are CheckersData.RED and CheckersData.BLACK.
     private int currentPlayer;
-
-    public void setMyPlayer(int myPlayer) {
-        this.myPlayer = myPlayer;
-    }
-
     private int myPlayer;
-
     // If the current player has selected a piece to
     // move, these give the row and column
     // containing that piece.  If no piece is
     // yet selected, then selectedRow is -1.
     private int selectedRow, selectedCol;
-
     // An array containing the legal moves for the current player
     private CheckersMove[] legalMoves;
-
-    private Rectangle[][] rectangles = new Rectangle[8][8];
-    private Circle[][] checkers = new Circle[8][8];
-
+    private Rectangle[][] rectangles = new Rectangle[Unit.BOARD_SIZE][Unit.BOARD_SIZE];
+    private Circle[][] checkers = new Circle[Unit.BOARD_SIZE][Unit.BOARD_SIZE];
     private NetInterface netInterface;
-
-    public void setNetInterface(NetInterface netInterface) {
-        this.netInterface = netInterface;
-    }
-
     public CheckersBoard(Button resignButton, Button newGameButton, Label message) {
         this.resignButton = resignButton;
         this.newGameButton = newGameButton;
@@ -69,6 +48,18 @@ public class CheckersBoard extends Group implements EventHandler<MouseEvent> {
         this.newGameButton.setOnMouseClicked(this);
         board = new CheckersData();
         doNewGame();
+    }
+
+    public void setGameInProgress(boolean gameInProgress) {
+        this.gameInProgress = gameInProgress;
+    }
+
+    public void setMyPlayer(int myPlayer) {
+        this.myPlayer = myPlayer;
+    }
+
+    public void setNetInterface(NetInterface netInterface) {
+        this.netInterface = netInterface;
     }
 
     public void doNewGame() {
@@ -245,8 +236,8 @@ public class CheckersBoard extends Group implements EventHandler<MouseEvent> {
 
     private void paint() {
         /* Draw the squares of the checkerboard and the checkers. */
-        for (int row = 0; row < 8; row++) {
-            for (int col = 0; col < 8; col++) {
+        for (int row = 0; row < Unit.BOARD_SIZE; row++) {
+            for (int col = 0; col < Unit.BOARD_SIZE; col++) {
                 Rectangle rectangle = new Rectangle(col * Unit.SIZE, row * Unit.SIZE, Unit.SIZE, Unit.SIZE);
                 rectangle.setId(row + "-" + col);
 
@@ -301,8 +292,8 @@ public class CheckersBoard extends Group implements EventHandler<MouseEvent> {
             }
         }
 
-        for (int row = 0; row < 8; row++)
-            for (int col = 0; col < 8; col++) {
+        for (int row = 0; row < Unit.BOARD_SIZE; row++)
+            for (int col = 0; col < Unit.BOARD_SIZE; col++) {
                 rectangles[row][col].setOnMouseClicked(this);
                 getChildren().add(rectangles[row][col]);
                 if (checkers[row][col] != null) {
