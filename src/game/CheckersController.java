@@ -25,14 +25,13 @@ import java.util.ResourceBundle;
 public class CheckersController implements Initializable {
 
     @FXML
-    private Button btn_newGame, btn_resign, btn_hostGame, btn_stopHosting, btn_joinGame, btn_stopJoin;
-    @FXML
-    private Label statusLabel, netStatusLabel;
-    @FXML
     Text txt_ipAddress, txt_port;
     @FXML
     TextField ipAddress, port;
-
+    @FXML
+    private Button btn_newGame, btn_resign, btn_hostGame, btn_stopHosting, btn_joinGame, btn_stopJoin;
+    @FXML
+    private Label statusLabel, netStatusLabel;
     private CheckersBoard board;
     private Server server;
     private Client client;
@@ -42,7 +41,7 @@ public class CheckersController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         GridPane grid = ((GridPane) btn_newGame.getParent().getParent());
-        grid.add(board = new CheckersBoard(btn_resign, btn_newGame, statusLabel), 0, 0);
+        grid.add(Unit.OPEN ? board = new CheckersBoard(btn_resign, btn_newGame, statusLabel) : null, 0, 0);
         grid.setBackground(new Background(new BackgroundFill(Color.WHEAT, null, null)));
         txt_ipAddress.setText(Network.ipAddresses());
     }

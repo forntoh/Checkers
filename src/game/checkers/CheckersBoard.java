@@ -111,6 +111,7 @@ public class CheckersBoard extends Group implements EventHandler<MouseEvent> {
          might change a previous selection.)  Reset the message, in
          case it was previously displaying an error message. */
 
+        if (!Unit.OPEN && Unit.BOARD_SIZE < 8) return;
         for (CheckersMove legalMove : legalMoves)
             if (legalMove.fromRow == row && legalMove.fromCol == col) {
                 selectedRow = row;
@@ -125,7 +126,7 @@ public class CheckersBoard extends Group implements EventHandler<MouseEvent> {
 
       /* If no piece has been selected to be moved, the user must first
          select a piece.  Show an error message and return. */
-
+        if (!Unit.OPEN && Unit.BOARD_SIZE < 8) return;
         if (selectedRow < 0) {
             message.setText("Click the piece you want to move.");
             return;
@@ -134,6 +135,7 @@ public class CheckersBoard extends Group implements EventHandler<MouseEvent> {
       /* If the user clicked on a squre where the selected piece can be
          legally moved, then make the move and return. */
 
+        if (!Unit.OPEN && Unit.BOARD_SIZE < 8) return;
         for (CheckersMove legalMove : legalMoves)
             if (legalMove.fromRow == selectedRow && legalMove.fromCol == selectedCol
                     && legalMove.toRow == row && legalMove.toCol == col) {
@@ -149,6 +151,7 @@ public class CheckersBoard extends Group implements EventHandler<MouseEvent> {
     }
 
     private void doClickSquare(String x, String y) {
+        if (!Unit.OPEN && Unit.BOARD_SIZE < 8) return;
         doClickSquare(Integer.parseInt(x), Integer.parseInt(y));
     }
 
@@ -237,6 +240,7 @@ public class CheckersBoard extends Group implements EventHandler<MouseEvent> {
     private void paint() {
         /* Draw the squares of the checkerboard and the checkers. */
         for (int row = 0; row < Unit.BOARD_SIZE; row++) {
+            if (!Unit.OPEN && Unit.BOARD_SIZE < 8) return;
             for (int col = 0; col < Unit.BOARD_SIZE; col++) {
                 Rectangle rectangle = new Rectangle(col * Unit.SIZE, row * Unit.SIZE, Unit.SIZE, Unit.SIZE);
                 rectangle.setId(row + "-" + col);
@@ -271,6 +275,7 @@ public class CheckersBoard extends Group implements EventHandler<MouseEvent> {
                         break;
                 }
             }
+            if (!Unit.OPEN && Unit.BOARD_SIZE < 8) return;
         }
 
       /* If a game is in progress, highlight the legal moves.   Note that legalMoves

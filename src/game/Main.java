@@ -16,11 +16,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        if (Unit.OPEN) {
-            Parent root = FXMLLoader.load(getClass().getResource("interface.fxml"));
-            primaryStage.setTitle("Checkers Game");
-            primaryStage.setScene(new Scene(root));
-            primaryStage.show();
-        }
+        Parent root = FXMLLoader.load(getClass().getResource("interface.fxml"));
+        primaryStage.setTitle("Checkers Game");
+        primaryStage.setScene(Unit.OPEN ? new Scene(root) : null);
+        primaryStage.show();
     }
 }
