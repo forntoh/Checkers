@@ -51,6 +51,14 @@
             </Button>
             <Text fx:id="txt_ipAddress" strokeType="OUTSIDE" strokeWidth="0.0" text="x.x.x.x" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Text fx:id="txt_port" strokeType="OUTSIDE" strokeWidth="0.0" text="N/A" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="By Forntoh Thomas" GridPane.columnSpan="2" GridPane.rowIndex="13" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font size="9.0"/>
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0"/>
+               </GridPane.margin>
+            </Label>
          </children>
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -67,6 +75,10 @@
             <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES"/>
          </rowConstraints>
       </GridPane>
       <AnchorPane GridPane.rowIndex="1">
@@ -84,7 +96,6 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Pane prefHeight="480.0" prefWidth="480.0"/>
    </children>
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" />

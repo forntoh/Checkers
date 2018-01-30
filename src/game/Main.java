@@ -1,5 +1,6 @@
 package game;
 
+import game.checkers.Unit;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,9 +16,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("interface.fxml"));
-        primaryStage.setTitle("Checkers Game");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+        if (Unit.OPEN) {
+            Parent root = FXMLLoader.load(getClass().getResource("interface.fxml"));
+            primaryStage.setTitle("Checkers Game");
+            primaryStage.setScene(new Scene(root));
+            primaryStage.show();
+        }
     }
 }
